@@ -1,0 +1,34 @@
+cat /etc/shells                                             Show shells
+echo $SHELL                                                 Show current shell         
+chmod u+x BashScripting01.sh                                Make script executable
+export PATH=$PATH:/Users/user/scripts                       Add script to PATH vars
+
+Variables
+readonly pi=3.14159                                         Add a constant variable
+TODAY=$(date)                                               Command substitutions
+TODAY=`date`
+dictro=$(cat /etc/os-release | egrep '^NAME=')             
+nlines=$(wc -l < $1)                                        First argument in the script
+n2=$(wc -l < $2)                                            Second argument in the script
+
+$0                                                          The name of the bash script
+$1, $2 ... $n                                               The bash script args
+$$                                                          The process id of the current shell
+$#                                                          The total number of args passed to the script
+$@                                                          The value of all args passed to the script
+$?                                                          The exit status of the last executed Command
+$!                                                          The process id of the last executed Command
+
+Arrays
+file=("f1.txt" "f2.txt" "f3.txt" "f4.txt" "f4.txt")         The array of args
+echo ${file[0]} ${file[1]} ${file[2]} ${file[3]}            Access to array elements
+echo ${file[*]}                                             Access to all elements
+echo ${#file[@]}                                            Show number of elements
+file[0]="a.txt"                                             Update first element 
+file+=("f6.txt")                                            Add an arg to the array
+unset file[2]                                               Delete an element from array
+MEGA=$(($GIGA * 1024))                                      Calculate args 
+
+Strings
+echo ${#variable}                                           Show length of arg
+str3=$str1$str2                                             Strings concatenating
